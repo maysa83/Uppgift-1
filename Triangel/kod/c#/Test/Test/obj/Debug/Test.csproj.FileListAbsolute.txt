@@ -1,0 +1,6 @@
+C:\Users\mf222nb\Documents\GitHub\Uppgift-1\Triangel\kod\c#\Test\Test\bin\Debug\Test.exe.config
+C:\Users\mf222nb\Documents\GitHub\Uppgift-1\Triangel\kod\c#\Test\Test\bin\Debug\Test.exe
+C:\Users\mf222nb\Documents\GitHub\Uppgift-1\Triangel\kod\c#\Test\Test\bin\Debug\Test.pdb
+C:\Users\mf222nb\Documents\GitHub\Uppgift-1\Triangel\kod\c#\Test\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\mf222nb\Documents\GitHub\Uppgift-1\Triangel\kod\c#\Test\Test\obj\Debug\Test.exe
+C:\Users\mf222nb\Documents\GitHub\Uppgift-1\Triangel\kod\c#\Test\Test\obj\Debug\Test.pdb
