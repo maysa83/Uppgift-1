@@ -49,21 +49,21 @@ public class Triangle
     {
         return sides.Distinct<double>().Count();
     }
-
+    
     public bool isScalene()
     {
         if (uniqueSides() == 1)
             return true;
         return false;
     }
-
+    //liksidig
     public bool isEquilateral()
     {
         if (uniqueSides() == 3)
             return true;
         return false;
     }
-
+    //likbent
     public bool isIsosceles()
     {
         if (uniqueSides() == 2)
