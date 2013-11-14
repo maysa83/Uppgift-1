@@ -61,24 +61,35 @@ namespace UnitTest
         }
         [TestMethod]
         //Test av konstruktor
-        public void TriangleTest()
+        public void TriangleConstructTest()
         {
             double[] sides = (double[])GetFieldValue(new Triangle(1, 1, 1), "sides");
 
             //Testar så att reflection fungerar och att fältet sides får ett värde - PASS
             Assert.IsTrue(sides[0] == 1 && sides[1] == 1 && sides[2] == 1);
 
-            ////Testar att konstruktorn inte godkänner 0 och det borde returnera false - PASS
+            ////Testar att konstruktorn inte godkänner 0 - FAIL
             //double[] sides1 = (double[])GetFieldValue(new Triangle(0, 1, 1), "sides");
             //CollectionAssert.AreNotEqual(new double[] { 0, 1, 1 }, sides1);
 
-            ////Testar så att negativa värden inte fungerar och borde returnera false - PASS
+            ////Testar så att negativa värden inte fungerar - FAIL
             //double[] sides2 = (double[])GetFieldValue(new Triangle(-1, 1, 1), "sides");
             //CollectionAssert.AreNotEqual(new double[] { -1, 1, 1 }, sides2);
         }
         [TestMethod]
-        public void TriangleTest1()
+        public void TriangleConstructTest1()
         {
+            //Testar den andra konstruktorn så att sides får 3 värden, ett tal är ett flyttal - PASS
+            double[] sides = (double[])GetFieldValue(new Triangle(new double[] { 1.2, 2, 3 }), "sides");
+            Assert.IsTrue(sides[0] == 1.2 && sides[1] == 2 && sides[2] == 3);
+
+            //Testar konstruktorn med enbart 2 värden - FAIL
+            double[] sides1 = (double[])GetFieldValue(new Triangle(new double[] { 1, 2 }), "sides");
+            Assert.IsFalse(sides1[0] == 1 && sides1[1] == 2);
+
+            //Testar konstruktorn med fler än 3 värden - FAIL
+            double[] sides2 = (double[])GetFieldValue(new Triangle(new double[] { 1, 2, 3, 4 }), "sides");
+            Assert.IsFalse(sides2[0] == 1 && sides2[1] == 2 && sides2[2] == 3 && sides2[3] == 4);
         }
         //Kopierat av Mats Lock
         private static object GetFieldValue(object sn, string name)
