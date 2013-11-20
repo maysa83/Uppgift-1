@@ -10,7 +10,7 @@ namespace UnitTest
     public class UnitTest1
     {
         [TestMethod]
-        //Test av likbent triangel
+        //Test av liksidig triangel
         public void isIsoscelesTest()
         {
             //Test med 3 olika argument och borde returnera false - PASS
@@ -26,20 +26,20 @@ namespace UnitTest
             Assert.IsTrue(tri2.isIsosceles());
         }
         [TestMethod]
-        //Test av liksidig triangel
+        //Test av likbent triangel
         public void isEquilateralTest()
         {
             //Test med 3 olika argument och borde returnera false - FAIL
             Triangle equ = new Triangle(1, 3.5, 5);
             Assert.IsFalse(equ.isEquilateral());
 
-            //Test med 2 lika argument och borde returnera false - PASS
-            Triangle equ1 = new Triangle(3.5, 3.5, 5);
-            Assert.IsFalse(equ1.isEquilateral());
-
             //Test med 3 lika argument och borde returnera true - FAIL
-            Triangle equ2 = new Triangle(3.5, 3.5, 3.5);
+            Triangle equ2 = new Triangle(4, 4, 4);
             Assert.IsTrue(equ2.isEquilateral());
+
+            //Test med 2 lika argument och borde returnera false - PASS
+            Triangle equ1 = new Triangle(4, 4, 5);
+            Assert.IsFalse(equ1.isEquilateral());
 
         }
         [TestMethod]
@@ -50,7 +50,7 @@ namespace UnitTest
             Triangle sca = new Triangle(1, 3.5, 5);
             Assert.IsTrue(sca.isScalene());
 
-            //Test med 2 lika argument och borde returnera false - PASS
+            //Test med 2 lika argument och borde returnera false - FAIL
             Triangle sca1 = new Triangle(3.5, 3.5, 5);
             Assert.IsFalse(sca1.isScalene());
 
@@ -77,7 +77,7 @@ namespace UnitTest
             CollectionAssert.AreNotEqual(new double[] { -1, 1, 1 }, sides2);
         }
         [TestMethod]
-        public void TriangleConstructTest1()
+        public void TriangleConstructArrayTest()
         {
             //Testar den andra konstruktorn så att sides får 3 värden, ett tal är ett flyttal - PASS
             double[] sides = (double[])GetFieldValue(new Triangle(new double[] { 1.2, 2, 3 }), "sides");
@@ -94,7 +94,7 @@ namespace UnitTest
         [TestMethod]
         public void PointConstructTest()
         {
-            //Välja sidan 8 och 6 så ska hypotenysan bli 10
+            //Välja sidan 8 och 5 så ska hypotenusan bli 10
 
             Point a = new Point(8, 0);
             Point b = new Point(0, 0);
@@ -104,8 +104,20 @@ namespace UnitTest
             double[] sides = (double[])GetFieldValue(new Triangle(a, b, c), "sides");
             Assert.IsTrue(sides[0] == 8 && sides[1] == 5 && sides[2] == 9);
         }
-        
-        
+        [TestMethod]
+        public void PointConstructArrayTest()
+        {
+            //Är sidorna 3 och 4 så ska hypotenusan bli 5
+            Point a = new Point(-3, 0);
+            Point b = new Point(0, 4);
+            Point c = new Point(0, 0);
+
+            //Testar att konstruktorn räknar rätt med dessa punkter - FAIL
+            double[] sides = (double[])GetFieldValue(new Triangle(new Point[]{a, b, c}), "sides");
+            Assert.IsTrue(sides[0] == 3);
+            Assert.IsTrue(sides[1] == 4);
+            Assert.IsTrue(sides[2] == 5);
+        }
         
         
         

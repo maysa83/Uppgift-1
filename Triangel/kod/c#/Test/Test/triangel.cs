@@ -61,14 +61,14 @@ public class Triangle
             return true;
         return false;
     }
-    //liksidig
+    //likbent
     public bool isEquilateral()
     {
         if (uniqueSides() == 3)
             return true;
         return false;
     }
-    //likbent
+    //liksidig
     public bool isIsosceles()
     {
         if (uniqueSides() == 2)
