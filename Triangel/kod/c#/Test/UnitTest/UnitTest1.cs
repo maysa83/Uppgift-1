@@ -163,7 +163,7 @@ namespace UnitTest
 
             //Testar om konstruktorn räknar rätt när den utgår från punkterna - FAIL
             double[] sides = (double[])GetFieldValue(new Triangle(a, b, c), "sides");
-            Assert.IsTrue(sides[0] == 8 && sides[1] == 5 && sides[2] == 9);
+            Assert.IsTrue(sides[0] == Math.Sqrt(89) && sides[1] == 8 && sides[2] == 5);
         }
         [TestMethod]
         public void PointConstructArrayTest()
@@ -176,8 +176,8 @@ namespace UnitTest
             //Testar att konstruktorn räknar rätt med dessa punkter - FAIL
             double[] sides = (double[])GetFieldValue(new Triangle(new Point[]{a, b, c}), "sides");
             Assert.IsTrue(sides[0] == 3);
-            Assert.IsTrue(sides[1] == 4);
-            Assert.IsTrue(sides[2] == 5);
+            Assert.IsTrue(sides[1] == 5);
+            Assert.IsTrue(sides[2] == 4);
         }
 
         [TestMethod]
